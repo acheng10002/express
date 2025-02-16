@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Homepage</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+  <body>
+    <% //
+    // const animals = ["Cat", "Dog", "Lemur", "Hawk"] 
+    // <ul>
+        // animals.map((animal) => {
+            // <li> animal s are cute</li>
+        // }) 
+    // </ul>
+    
+    //  message variable gets replaced with its value in the HTML file 
+    // message 
+    // locals.foo 
+    //  to insert webpage components that are shared across different pages,
+    //  insert them by using the include command
+    //  first arg, name of the file to be inserted 
+    //  second arg optional, an object of data
+    //  include the navbar with the links variable 
+    //  first tag is a raw output tag with include, to avaoid double-escaping the HTML output 
+    %>
+    <ul>
+        <%# dynamically renders a list of variables %>
+        <% users.forEach((user) => { %>
+            <% // How to use EJS 
+               // - How can templates be included in other templates?  
+               // creates nested directories of EJS template files within the views 
+            %>
+            <% // include('users/user', {user: user}); %>
+            <%- include('user', {user: user}); %>
+        %>
+        <% }); %>
+    </ul>
+    <%- include("navbar", {links: links}); %>
+    <%- include("footer"); %>
+  </body>
+</html>

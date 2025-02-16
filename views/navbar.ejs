@@ -1,0 +1,13 @@
+<% // example of a reusable template, reusable templates can be used to
+// include headers, footers, etc. %>
+<nav>
+    <ul>
+        <% for (let i = 0; i < links.length; i++) { %>
+            <li>
+                <a href="<%= links[i].href %>">
+                    <span><%= links[i].text %></span>
+                </a>
+            </li>
+        <% } %>
+    </ul>
+</nav>
