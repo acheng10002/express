@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Form</title>
+  </head>
+  <body>
+    <!-- Understanding HTML form elements and their actions
+- What are the attributes of a form element and what do they do? 
+action - points to resource/URL/endpoint on the server where data is sent for processing, when form 
+         is submitted; if not set, form will be submitted back to the current page URL
+- Post/Redirect/Get (PRG) design pattern that prevents duplicate POST requests
+- before form data is sent off to my server, consider:
+validation - ensures user input meets specified criteria (e.g. required fields, correct format)
+sanitization - cleans user input to prevent malicious data from being processed by removing or 
+               encoding potentially malicious characters
+               sometimes it makes sense to sanitize data just before I use it
+1. form points to some endpoint on my server.
+2. my controller will handle the request.
+3. controller communicates with the database to handle the data.
+4. generate a new or updated view with the controller's response.
+5. redirect the client.
+method - corresponds to a HTTP verb 
+- POST is more secure bc it keeps sensitive info out of the URL 
+- info won't show in server logs
+- POST is standard choice for creating and updating data on the server side
+- GET is form forms that don't modify data, like search forms
+  or when I want the form submission to be bookmarkable or shareable via URL 
+  
+    /users/:id/update is the endpoint I've created on my Express server -->
+    <form action="/users/<%= user.userId %>/update" method="POST">
+      <!-- text input with an associated label and submit button -->
+      <label for="fullName">Full Name:</label>
+      <!-- input's name attribute defines how my input will be identified in the
+       form data sent to my server *must note when handling form submissions on the backend 
+       form data is sent as a query string as part of the request url -->
+      <input placeholder="John Doe" type="text" name="fullName" id="fullName" />
+      <!-- type submit allows user to upload entered data to the server -->
+      <button type="submit">Submit</button>
+    </form>
+    <!-- - What is the importance of escaping HTML characters in a form?
+    if client decides to inject JS code, I can escape/encode the output 
+     escaped HTML - replaces special characters with their respective HTML entities, like 
+                    < with &lt 
+    <%= %> escapes the output 
+    dangerous characters depend on context,
+    - script tag is dangerous in HTML but not in a database query
+    - an apostrophe can be dangerous in SQL but not in a JSON API response 
+    - escaping at input may distort data
+    - best to store raw data safely and escape it at output based on its usage 
+    <%- userInput %> is similar to .innerHTML in JavaScript—it will render raw 
+    HTML, which is a major security risk if not sanitized 
+    once validation results are applied...I can use validationRssult to handle any validation errors -->
+    <div>About Me: <%= username %>!</div>
+  </body>
+</html>

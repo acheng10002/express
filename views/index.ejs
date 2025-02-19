@@ -1,6 +1,9 @@
+<% /* all ejs files will be renders as HTML when the client makes a request to
+the relevant pages 
+*/ %>
 <html>
     <head>
-        <title>Homepage</title>
+        <title><%= title %></title>
         <link rel="stylesheet" href="/styles.css">
     </head>
   <body>
@@ -13,8 +16,9 @@
     // </ul>
     
     //  message variable gets replaced with its value in the HTML file 
-    // message 
-    // locals.foo 
+    %>
+    <h1><%= message %></h1> 
+    <% // locals.foo 
     //  to insert webpage components that are shared across different pages,
     //  insert them by using the include command
     //  first arg, name of the file to be inserted 

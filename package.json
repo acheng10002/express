@@ -16,10 +16,11 @@
     "url": "https://github.com/acheng10002/express/issues"
   },
   "homepage": "https://github.com/acheng10002/express#readme",
-  "description": "",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "express-async-handler": "^1.2.0"
-  }
+    "express-async-handler": "^1.2.0",
+    "express-validator": "^7.2.1"
+  },
+  "description": ""
 }

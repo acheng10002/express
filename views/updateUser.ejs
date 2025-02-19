@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <!-- reuses the errors.ejs template 
+    if form data is not valid, create form with user-entered and error messages -->
+    <%- include("partials/errors.ejs") %>
+    <!-- form will make a post request
+    and action specifies the URL where the form data should be sent, server at
+    /:id/update will process the request -->
+    <form action="/<%= user.id %>/update" method="POST">
+      <input
+        type="text"
+        name="firstName"
+        value="<%= user.firstName %>"
+        required
+      />
+      <input
+        type="text"
+        name="lastName"
+        value="<%= user.lastName %>"
+        required
+      />
+      <input type="email" name="email" value="<%= user.email %>" required />
+      <input type="number" name="age" value="<%= user.age %>" />
+      <textarea type="text" name="bio"><%= user.bio %></textarea>
+      <button type="submit">Update User</button>
+    </form>
+    <a href="/">Back to home</a>
+  </body>
+</html>

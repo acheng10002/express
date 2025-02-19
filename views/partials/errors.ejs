@@ -1,0 +1,10 @@
+<!-- if locals object has an errors array -->
+<% if (locals.errors) {%>
+    <ul>
+        <!-- iterate over the errors array, and for each error,
+        render its msg property in a li element -->
+        <% errors.forEach(function(error) { %>
+        <li><%= error.msg %></li>
+        <% }); %>
+    </ul>
+<% } %>

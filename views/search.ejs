@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+      <% matches.forEach((match) => { %>
+      <li><%= match.firstName %> <%= match.lastName %></li>
+      <% }); %>
+    </ul>
+    <a href="/">Back to home</a>
+  </body>
+</html>

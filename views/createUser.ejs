@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <!-- reuses the errors.ejs template 
+     if form data is not valid, create form with user-entered and error messages -->
+    <%- include("./partials/errors.ejs") %>
+    <!-- form will make a post request and action specifies the URL where
+    the form data should be sent, server at /create will process the request -->
+    <form action="/create" method="POST">
+      <div>
+        <label for="firstName">First Name: </label>
+        <input type="text" name="firstName" id="firstName" required />
+      </div>
+      <br />
+      <div>
+        <label for="lastName">Last Name: </label>
+        <input type="text" name="lastName" id="lastName" required />
+      </div>
+      <br />
+      <div>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <br />
+      <div>
+        <label for="age">Age: </label>
+        <input type="number" name="age" id="age" min="18" max="120" />
+      </div>
+      <br />
+      <div>
+        <label for="bio">Bio: </label>
+        <textarea
+          name="bio"
+          id="bio"
+          placeholder="Tell us about yourself..."
+        ></textarea>
+      </div>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <br />
+    <!-- action - points to resource/URL/endpoint on the server where data is 
+    sent for processing, when form is submitted -->
+    <form action="/search" method="GET">
+      <div>
+        <label for="nameSearch">Name: </label>
+        <input type="text" name="nameSearch" id="nameSearch" required />
+      </div>
+      <br />
+      <button type="submit">Search</button>
+    </form>
+    <br />
+    <a href="/">Back to home</a>
+  </body>
+</html>

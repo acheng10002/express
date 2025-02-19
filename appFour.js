@@ -54,7 +54,12 @@ app.get("/", (req, res) => {
   /* first arg looks for a templated called index in views
   second arg is an object of variables that are to be made available to the first 
   navbar.ejs expects the links variable, so it is being passed in as a locals variable */
-  res.render("index", { links: links, users: users });
+  res.render("index", {
+    title: "Hey",
+    message: "Hello there!",
+    links: links,
+    users: users,
+  });
 });
 
 app.get("/about", (req, res) => {
@@ -65,3 +70,50 @@ app.get("/about", (req, res) => {
 });
 
 app.listen(8080);
+
+/* Understand what a hosting provider is
+- hosting provider - allow me to run, build, and operate web apps in the cloud
+                     owns servers and rents space on them to customers, who can use the 
+                     space to store websites and make them public 
+- GitHub pages is great for hosting static web pages but won't work for hosting dynamic
+  Node apps
+  it cannot run Node.js apps and doesn't have database services I can use
+  host providers like Netlify and Vercel, the former which I used with React, do not have 
+  the same capabilitires to run my Node.js servers and databases 
+Under the difference between static and dynamic sites
+- static site - made up of pre-written HTML pages that look the same for all visitors
+                built with up HTML, CSS, and JS
+- dynamic site - websites that change content based on the visitor
+                 built with HTML, CSS, JS, AND a server-side app and a database
+the big, complex cloud providers - AWS, Google Cloud, and Microsoft Azure
+Understand what a PaaS is and how they work
+- beginner-friendly, platform as a service provider, Railway and Render
+- What are the advantages of using a PaaS hosting provider?
+- PaaS hosting providers manage many low-level details with underlying server infrastructure,
+  I don't have to worry about configuring and managing the servers my apps run on
+- PaaS give me easy access to a few resources that any Node app can't live without
+- What is an instance?
+- instance - a single instance of my app running at one time, e.g. one computer running my
+             app like I do on Localhost
+             virtual computer provided by PaaS providers, that runs my app
+             multiple instances == several copies of my app running simultaneously, allows me
+             to handle more traffic
+
+databases - PaaS providers make it easy to spin up a new database for each app by doing all 
+            setup and configuration for me
+            some providers even set up automatic backups for my databases
+many PaaS services come with SQL databases included
+PaaS providers also give me a random domain name when I first deploy, unique on their platform
+I'd want to link the unique domain name from the PaaS to my own custom domain
+once I have my custom domain, I need to point it to my project
+Know how to deploy to a PaaS provider
+Know how to troubleshoot common deployment issues 
+- What steps can I take to diagnose an issue that arises during deployment?
+- check the build logs, the stream of output I'll see after kicking off a new deployment
+- Google-fu it/Stack Overflow
+- double-checking deployment guide
+- What steps can I take to diagnose an issue that only appears after deployment?
+- application logs 
+- services like Sentry to track and monitor errors 
+- backtrack to the last working version to figure out what changes I made and slowly 
+  reintroduce the changes again if I need to */
