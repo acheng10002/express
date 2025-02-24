@@ -27,7 +27,7 @@ redirect browser to success URL */
 usersRouterTwo.post("/:id/update", usersControllerTwo.usersUpdatePost);
 // defines route for deleting users, with :id
 usersRouterTwo.post("/:id/delete", usersControllerTwo.usersDeletePost);
-
+// defines route for searching names
 usersRouterTwo.get("/search", usersControllerTwo.usersSearchGet);
 
 module.exports = usersRouterTwo;
